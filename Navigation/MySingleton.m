@@ -10,7 +10,7 @@
 
 @implementation MySingleton
 
-@synthesize word,img,sound,contador;
+@synthesize word,img,sound,contador,letter;
 
 
 static MySingleton *single=nil;
@@ -27,9 +27,13 @@ static MySingleton *single=nil;
     
     if (self=[super init]) {
         
-        word = [[NSArray alloc] initWithObjects:@"Apple",@"Balloon",@"Candy",@"Dice",@"Elephant",@"Flute",@"Game",@"Hippopotamus",@"Iron",@"Jail",@"Key",@"Lamp",@"Magazine",@"Necklace",@"Office",@"Paint",@"Quick",@"Rain",@"Sandwich",@"Tomato",@"Umbrella",@"Vegetables",@"Waitress",@"Xylophone",@"Yellow",@"Zebra", nil];
         
-        img = [[NSArray alloc]initWithObjects:@"Apple.jpg",@"Balloon.jpg",@"Candy.png",@"Dice",@"Elephant",@"Flute",@"Game",@"Hippopotamus",@"Iron",@"Jail",@"Key",@"Lamp",@"Magazine",@"Necklace",@"Office",@"Paint",@"Quick",@"Rain",@"Sandwich",@"Tomato",@"Umbrella",@"Vegetables",@"Waitress",@"Xylophone",@"Yellow",@"Zebra", nil];
+        letter=[[NSArray alloc]initWithObjects:@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z", nil];
+        
+        word = [[NSArray alloc] initWithObjects:@"Astra",@"Bentley",@"Cadillac",@"DeLorean",@"Eclipse",@"Ferrari",@"Gurgel",@"Hummer",@"Impala",@"Jaguar",@"Kombi",@"Lincoln",@"McLaren",@"Neon",@"Opala",@"Parati",@"Qashqai",@"Ranger",@"Santana",@"Thunderbird",@"Uno",@"Veraneio",@"Wagoneer",@"Xsara",@"Yaris",@"Zagatto", nil];
+        img = [[NSArray alloc] initWithObjects:@"Apple.jpg",@"Balloon.jpg",@"Cadillac",@"DeLorean",@"Eclipse",@"Ferrari",@"Gurgel",@"Hummer",@"Impala",@"Jaguar",@"Kombi",@"Lincoln",@"McLaren",@"Neon",@"Opala",@"Parati",@"Qashqai",@"Ranger",@"Santana",@"Thunderbird",@"Uno",@"Veraneio",@"Wagoneer",@"Xsara",@"Yaris",@"Zagatto", nil];
+        
+        
         contador=0;
         
     }

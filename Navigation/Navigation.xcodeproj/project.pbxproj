@@ -21,6 +21,8 @@
 		27156F7218B76AF50053A99C /* NavigationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 27156F7118B76AF50053A99C /* NavigationTests.m */; };
 		E8A153021AB750DB003A36D5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A153011AB750DB003A36D5 /* ViewController.m */; };
 		E8A1530B1AB75860003A36D5 /* MySingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A1530A1AB75860003A36D5 /* MySingleton.m */; };
+		E8A153111AB8523F003A36D5 /* MViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A153101AB8523F003A36D5 /* MViewController.m */; };
+		E8A153131AB8B894003A36D5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A153121AB8B894003A36D5 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,9 @@
 		E8A153011AB750DB003A36D5 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E8A153091AB75860003A36D5 /* MySingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySingleton.h; sourceTree = "<group>"; };
 		E8A1530A1AB75860003A36D5 /* MySingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySingleton.m; sourceTree = "<group>"; };
+		E8A1530F1AB8523F003A36D5 /* MViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MViewController.h; sourceTree = "<group>"; };
+		E8A153101AB8523F003A36D5 /* MViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MViewController.m; sourceTree = "<group>"; };
+		E8A153121AB8B894003A36D5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8A153131AB8B894003A36D5 /* AVFoundation.framework in Frameworks */,
 				27156F4F18B76AF50053A99C /* CoreGraphics.framework in Frameworks */,
 				27156F5118B76AF50053A99C /* UIKit.framework in Frameworks */,
 				27156F4D18B76AF50053A99C /* Foundation.framework in Frameworks */,
@@ -83,6 +89,8 @@
 		27156F4018B76AF50053A99C = {
 			isa = PBXGroup;
 			children = (
+				E8A1530F1AB8523F003A36D5 /* MViewController.h */,
+				E8A153101AB8523F003A36D5 /* MViewController.m */,
 				E8A153091AB75860003A36D5 /* MySingleton.h */,
 				E8A1530A1AB75860003A36D5 /* MySingleton.m */,
 				E8A153001AB750DB003A36D5 /* ViewController.h */,
@@ -106,6 +114,7 @@
 		27156F4B18B76AF50053A99C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E8A153121AB8B894003A36D5 /* AVFoundation.framework */,
 				27156F4C18B76AF50053A99C /* Foundation.framework */,
 				27156F4E18B76AF50053A99C /* CoreGraphics.framework */,
 				27156F5018B76AF50053A99C /* UIKit.framework */,
@@ -254,6 +263,7 @@
 				E8A153021AB750DB003A36D5 /* ViewController.m in Sources */,
 				27156F5D18B76AF50053A99C /* MackenzieAppDelegate.m in Sources */,
 				27156F5918B76AF50053A99C /* main.m in Sources */,
+				E8A153111AB8523F003A36D5 /* MViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

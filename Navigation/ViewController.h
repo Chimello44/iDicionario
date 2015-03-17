@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 #import "MySingleton.h"
 
 @interface ViewController : UIViewController
 
 @property MySingleton* ms;
-
+@property UIImageView *im;
 @end

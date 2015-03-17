@@ -8,13 +8,14 @@
 
 #import "MackenzieAppDelegate.h"
 #import "ViewController.h"
+#import "MViewController.h"
 
 
 @implementation MackenzieAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    ViewController *viewController = [[ViewController alloc]
+    MViewController *viewController = [[MViewController alloc]
                                            initWithNibName:nil
                                            bundle:nil];
     

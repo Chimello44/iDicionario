@@ -12,6 +12,7 @@
     NSArray *img;
     NSArray *word;
     NSArray *sound;
+    NSArray *letter;
     
     MySingleton *ms;
     
@@ -19,6 +20,7 @@
 @property(nonatomic,retain) NSArray *word;
 @property(nonatomic,retain) NSArray *img;
 @property(nonatomic,retain) NSArray *sound;
+@property(nonatomic,retain) NSArray *letter;
 @property int contador;
 +(MySingleton *) singleObj;
 
