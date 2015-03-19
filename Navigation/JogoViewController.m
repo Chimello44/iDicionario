@@ -12,15 +12,17 @@
 @interface JogoViewController ()
 
 @end
-
+UITextField *textCarro;
 @implementation JogoViewController
-
 @synthesize ms,im;
 -(void) viewDidLoad {
+    
+    
+    
     [super viewDidLoad];
     ms =[MySingleton singleObj];
     
-    
+    [self.tabBarController.tabBar setHidden:YES];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     ///////////////
     
@@ -37,34 +39,51 @@
     
     
    
-    //////// botao p/main
+    //////////////////////////// botao p/main
     
     UIButton *botaoo=[UIButton buttonWithType:UIButtonTypeSystem];
     [botaoo setTitle:@"Main" forState:UIControlStateNormal];
     [botaoo sizeToFit];
-    botaoo.frame = CGRectMake(120,450,100,50);
+    botaoo.frame = CGRectMake(120,400,100,50);
     [botaoo addTarget:self action:@selector(main:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:botaoo];
     
-    //////////
+    //////////////////////////
+    
+    
     
     //////////--------- TOOLBAR//Edit#@
     
     self.navigationController.toolbarHidden=NO;
     UIBarButtonItem *flexItem =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
     UIBarButtonItem *item=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(edit:)] ;
-    UIBarButtonItem *take=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(takePhoto:)] ;
-    UIBarButtonItem *gallery=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(addPhoto:)] ;
+    UIBarButtonItem *take=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(takePhoto:)] ;
+    UIBarButtonItem *gallery=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPhoto:)] ;
     
    NSArray *items =[NSArray arrayWithObjects:take,flexItem,item,flexItem,gallery, nil];
    self.toolbarItems=items;
+    
+    //////////////////////
+    
+    ///////////////// NOME CARRO
+    
+    textCarro=[[UITextField alloc]initWithFrame:CGRectMake(10,64,300,30)];
+    textCarro.textAlignment=NSTextAlignmentLeft;
+    
+    textCarro.font=[UIFont systemFontOfSize:12];
+    textCarro.placeholder=@"NOME DO CARRO";
+    textCarro.keyboardType=UIKeyboardTypeDefault;
+    textCarro.returnKeyType =UIReturnKeyDone;
+    textCarro.contentVerticalAlignment=UIControlContentVerticalAlignmentCenter;
+    textCarro.delegate=self;
+    
+    [self.view addSubview:textCarro];
 }
--(void)gallery:(id)sender {
-}
--(void)take:(id)sender {
-}
+
+
   -(void)edit:(id)sender {
+      
   }
 -(void)viewWillAppear:(BOOL)animated{
     im =[[UIImageView alloc] initWithFrame:CGRectMake(250,250,250,250)];

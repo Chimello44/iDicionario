@@ -17,14 +17,14 @@ MySingleton *ms;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    ms=[MySingleton singleObj];
-//    
-//    self.tableView=[[UITableView alloc]initWithFrame:(0,0,0,self.view.frame.size.height)];
-//    
-//    self.tableView.dataSource=self;
-//    self.tableView.delegate=self;
-//    
-//}
+    ms=[MySingleton singleObj];
+    
+    self.tableView.dataSource=self;
+    self.tableView.delegate=self;
+    
+    self.tabBarItem=[[UITabBarItem alloc]initWithTitle:@"Carros" image:nil tag:1];
+    self.tabBarItem=[[UITabBarItem alloc]initWithTitle:@"Tabela" image:nil tag:2];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,24 +37,27 @@ MySingleton *ms;
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return[ms.word count];
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Configure the cell...
+    UITableViewCell *cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"palavra"];
+                           
+                           long row=indexPath.row;
+    [cell.textLabel setText:[NSString stringWithFormat:@"%c",[[ms.word objectAtIndex:row]characterAtIndex:0]]];
+    [cell.detailTextLabel setText:[ms.word objectAtIndex:row]];
     
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

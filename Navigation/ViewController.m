@@ -8,14 +8,15 @@
 //https://joguestop.wordpress.com/2012/12/01/alfabeto-de-carros/
 #import "ViewController.h"
 #import "MViewController.h"
-#import "TabViewController.h"
+#import "MainTabViewController.h"
 
 
 
 @interface ViewController ()
 
 @end
-
+UIButton *botaoBusca;
+UITextField *textBusca;
 @implementation ViewController
 @synthesize ms,im;
 -(void) viewDidLoad {
@@ -24,7 +25,7 @@
     
     
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    ///////////////
+    ///////////////////////
     
     self.navigationItem.title = [ms.letter objectAtIndex:ms.contador];
     
@@ -37,11 +38,12 @@
     self.navigationItem.rightBarButtonItem=next;
     self.navigationItem.leftBarButtonItem=back;
     
-    ///////////////
+    ///////////////////////
     
     
     
     //self.im.layer.cornerRadius = 10.0f;
+    
     
     ////////////
     UIButton *botao = [UIButton
@@ -65,16 +67,30 @@
     
     [self.view addSubview:botaoo];
     
-//    ////////// TABBAR
-//    
-//    Tabbar=[[UITabBar alloc]initWithFrame:CGRectMake(0, self.view.bounds.size.y, self.view.bounds.size.width,50)];
-//    [Tabbar setBackgroundColor:[UIColor blackColor]];
-//    UITabBarItem *normal=[[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemBookmarks tag:1];
-////    UITabBarItem *table=
-//    
-//    [self.view addSubview:Tabbar];
+    ///////////////////   BOTAO BUSCA
+    textBusca=[[UITextField alloc]initWithFrame:CGRectMake(10,64,300,30)];
+    textBusca.textAlignment=NSTextAlignmentLeft;
+    textBusca.borderStyle=UITextBorderStyleRoundedRect;
+    textBusca.font=[UIFont systemFontOfSize:12];
+    textBusca.placeholder=@"Pesquisar carro";
+    textBusca.keyboardType=UIKeyboardTypeDefault;
+    textBusca.returnKeyType =UIReturnKeyDone;
+    textBusca.contentVerticalAlignment=UIControlContentVerticalAlignmentCenter;
+    textBusca.delegate=self;
+    ///////////////////   TEXT BUSCA
+    
+    botaoBusca=[UIButton buttonWithType:UIButtonTypeSystem];
+    //botaoBusca addTarget:self action:@selector(buscarCarro:) forControlEvents:UIControlEventTouchUpInside];
+    [botaoBusca setTitle:@"Busca"forState:UIControlStateNormal];
+    botaoBusca.frame = CGRectMake(62,100,200,30);
+    
+    
+    [self.view addSubview:textBusca];
+    [self.view addSubview:botaoBusca];
 }
-
+-(void)buscarCarro:(id)sender{
+    
+}
 -(void)viewWillAppear:(BOOL)animated{
     im =[[UIImageView alloc] initWithFrame:CGRectMake(250,250,250,250)];
     im.image=[UIImage imageNamed:[ms.img objectAtIndex:ms.contador]];
@@ -99,7 +115,7 @@
 AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
 AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:[ms.word objectAtIndex:ms.contador]];
 [utterance setPitchMultiplier:1.15f];
-utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"pt-BR"];
+utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-US"];
 [utterance setRate:0.03f];
 [synthesizer speakUtterance:utterance];
     
@@ -163,43 +179,7 @@ utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"pt-BR"];
     }
 }
 
-//- (IBAction)addPhoto:(id)sender {
-//    
-//    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-//    picker.delegate = self;
-//    picker.allowsEditing = YES;
-//    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-//    
-//    [self presentViewController:picker animated:YES completion:NULL];
-//    
-//}
-//
-//- (IBAction)takePhoto:(id)sender {
-//    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-//    picker.delegate = self;
-//    picker.allowsEditing = YES;
-//    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-//    
-//    [self presentViewController:picker animated:YES completion:NULL];
-//    
-//}
-//
-//#pragma mark - Image Picker Controller delegate methods
-//
-//- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-//    
-//    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
-//    self.imageSign.image = chosenImage;
-//    
-//    imageSource = [info objectForKey:UIImagePickerControllerReferenceURL];
-//    
-//    [picker dismissViewControllerAnimated:YES completion:NULL];
-//    
-//}
-//
-//- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-//    [picker dismissViewControllerAnimated:YES completion:NULL];
-//}
+
 
 
 @end

@@ -10,27 +10,36 @@
 #import "ViewController.h"
 #import "MViewController.h"
 #import "JogoViewController.h"
-#import "TabViewController.h"
+#import "MainTabViewController.h"
+#import "TableViewController.h"
 
 
 @implementation MackenzieAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    MViewController *viewController = [[MViewController alloc]
-                                           initWithNibName:nil
-                                           bundle:nil];
+//    MainTabViewController *viewController = [[MainTabViewController alloc]
+//                                           initWithNibName:nil
+//                                           bundle:nil];
+    MainTabViewController *tbc = [[MainTabViewController alloc] init];
     
+    MViewController *vc=[[MViewController alloc]init];
+    UINavigationController *nvc=[[UINavigationController alloc]initWithRootViewController:vc];
     
-    self.navigationController = [[UINavigationController alloc]
-                                 initWithRootViewController:viewController];
+    TableViewController *tvc=[[TableViewController alloc]init];
+    
+    NSArray *views=[[NSArray alloc]initWithObjects:nvc,tvc, nil];
+    [tbc setViewControllers:views];
+    
+    [[tbc tabBar] setHidden:NO];
+    
+    //self.navigationController = [[UINavigationController alloc]
+     //                            initWithRootViewController:viewController];
     self.window = [[UIWindow alloc]
                    initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = self.navigationController;
-
-
     
     self.window.backgroundColor = [UIColor whiteColor];
+    self.window.rootViewController = tbc;
     [self.window makeKeyAndVisible];
     
     return YES;

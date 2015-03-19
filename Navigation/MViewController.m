@@ -10,7 +10,9 @@
 #import "ViewController.h"
 #import "JogoViewController.h"
 #import "TableViewController.h"
-#import "TabViewController.h"
+#import "MainTabViewController.h"
+
+
 
 @interface MViewController ()
 
@@ -21,9 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     ms =[MySingleton singleObj];
-    
-   
-    
+
     
 //    UIButton *botao=[UIButton buttonWithType:UIButtonTypeSystem];
 //    [botao setTitle:@"Começar" forState:UIControlStateNormal];
@@ -33,10 +33,12 @@
 //    [self.view addSubview:botao];
 //    botao.frame = CGRectMake(120,500,100,50); nn
     
-    
+    self.tabBarItem=[[UITabBarItem alloc]initWithTitle:@"Carros" image:nil tag:1];
+   
 }
 
 -(void) viewWillAppear:(BOOL)animated{
+    
     //-----------------------------img1
     im=[[UIImageView alloc] initWithFrame:CGRectMake(5,self.view.center.y-100,150,150)];
     
@@ -51,9 +53,16 @@
     UITapGestureRecognizer *rec = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(next:)];
     
     [im addGestureRecognizer:rec];
+    
+    
     //-----------------------------img1
     
+    
+    
+    
     //-----------------------------img2
+    
+    
     im2=[[UIImageView alloc] initWithFrame:CGRectMake(self.view.center.x,self.view.center.y-100,150,150)];
     im2.image=[UIImage imageNamed:[ms.imgmain objectAtIndex:1]];
     [self.view addSubview:im2];
@@ -72,6 +81,7 @@
     UITapGestureRecognizer *rec2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(next2:)];
     
     [im2 addGestureRecognizer:rec2];
+    
     //-----------------------------img2
 }
 - (void)didReceiveMemoryWarning {
@@ -80,14 +90,14 @@
 }
 
 -(void)next:(id)sender {
-TabViewController *proximo = [[TabViewController alloc]
+ViewController *proximo = [[ViewController alloc]
                                initWithNibName:nil
                                bundle:NULL];
     
     [self.navigationController pushViewController:proximo
                                          animated:YES];
     
-    
+//    [self tabBarController show=YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
