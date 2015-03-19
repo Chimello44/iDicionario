@@ -9,6 +9,8 @@
 #import "MackenzieAppDelegate.h"
 #import "ViewController.h"
 #import "MViewController.h"
+#import "JogoViewController.h"
+#import "TabViewController.h"
 
 
 @implementation MackenzieAppDelegate

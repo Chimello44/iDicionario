@@ -8,6 +8,7 @@
 //https://joguestop.wordpress.com/2012/12/01/alfabeto-de-carros/
 #import "ViewController.h"
 #import "MViewController.h"
+#import "TabViewController.h"
 
 
 
@@ -25,7 +26,7 @@
     [self.view setBackgroundColor:[UIColor whiteColor]];
     ///////////////
     
-    self.title = [ms.letter objectAtIndex:ms.contador];
+    self.navigationItem.title = [ms.letter objectAtIndex:ms.contador];
     
     NSLog(@"deu?");
     UIBarButtonItem *next = [[UIBarButtonItem alloc]
@@ -64,9 +65,14 @@
     
     [self.view addSubview:botaoo];
     
-    //////////
-    
-    
+//    ////////// TABBAR
+//    
+//    Tabbar=[[UITabBar alloc]initWithFrame:CGRectMake(0, self.view.bounds.size.y, self.view.bounds.size.width,50)];
+//    [Tabbar setBackgroundColor:[UIColor blackColor]];
+//    UITabBarItem *normal=[[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemBookmarks tag:1];
+////    UITabBarItem *table=
+//    
+//    [self.view addSubview:Tabbar];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -87,7 +93,7 @@
     
     [im addGestureRecognizer:rec];
 }
-
+///////////////////////////////////////////////    funcao fala
 -(void)speak:(id)sender{
     NSLog(@"speak");
 AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
@@ -99,7 +105,7 @@ utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"pt-BR"];
     
 }
 
-
+///////////////////////////////////////////////   botao para proximo
 -(void)next:(id)sender {
     ViewController *proximo = [[ViewController alloc]
                                      initWithNibName:nil
@@ -112,7 +118,7 @@ utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"pt-BR"];
                                          animated:NO];
    [self dismissViewControllerAnimated:YES completion:nil];
 }
-///////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////// botao para voltar para o main
 -(void)main:(id)sender {
     MViewController *proximo = [[MViewController alloc]
                                 initWithNibName:nil
@@ -122,8 +128,7 @@ utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"pt-BR"];
                                          animated:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-/////////////////////////////////////////////////////////////////////
-
+/////////////////////////////////////////////////   botao para a anterior
 -(void)back:(id)sender {
     
     ViewController *anterior = [[ViewController alloc]
@@ -141,6 +146,9 @@ utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"pt-BR"];
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
+
+
+///////////////////////////////////////////   metodo para animacao de zoom na imagem
 
 -(void)expansion:(UILongPressGestureRecognizer*)sender{
     if(sender.state==UIGestureRecognizerStateBegan){

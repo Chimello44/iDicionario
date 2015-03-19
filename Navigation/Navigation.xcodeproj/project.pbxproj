@@ -23,6 +23,9 @@
 		E8A1530B1AB75860003A36D5 /* MySingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A1530A1AB75860003A36D5 /* MySingleton.m */; };
 		E8A153111AB8523F003A36D5 /* MViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A153101AB8523F003A36D5 /* MViewController.m */; };
 		E8A153131AB8B894003A36D5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A153121AB8B894003A36D5 /* AVFoundation.framework */; };
+		E8A153161AB9E14B003A36D5 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A153151AB9E14B003A36D5 /* TableViewController.m */; };
+		E8A153191ABA02D8003A36D5 /* JogoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A153181ABA02D8003A36D5 /* JogoViewController.m */; };
+		E8A1531C1ABA0AE2003A36D5 /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A1531B1ABA0AE2003A36D5 /* TabViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,11 +57,17 @@
 		27156F7118B76AF50053A99C /* NavigationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationTests.m; sourceTree = "<group>"; };
 		E8A153001AB750DB003A36D5 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		E8A153011AB750DB003A36D5 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		E8A153091AB75860003A36D5 /* MySingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySingleton.h; sourceTree = "<group>"; };
-		E8A1530A1AB75860003A36D5 /* MySingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySingleton.m; sourceTree = "<group>"; };
+		E8A153091AB75860003A36D5 /* MySingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MySingleton.h; path = ../MySingleton.h; sourceTree = "<group>"; };
+		E8A1530A1AB75860003A36D5 /* MySingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MySingleton.m; path = ../MySingleton.m; sourceTree = "<group>"; };
 		E8A1530F1AB8523F003A36D5 /* MViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MViewController.h; sourceTree = "<group>"; };
 		E8A153101AB8523F003A36D5 /* MViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MViewController.m; sourceTree = "<group>"; };
 		E8A153121AB8B894003A36D5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		E8A153141AB9E14B003A36D5 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		E8A153151AB9E14B003A36D5 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		E8A153171ABA02D8003A36D5 /* JogoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JogoViewController.h; sourceTree = "<group>"; };
+		E8A153181ABA02D8003A36D5 /* JogoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JogoViewController.m; sourceTree = "<group>"; };
+		E8A1531A1ABA0AE2003A36D5 /* TabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
+		E8A1531B1ABA0AE2003A36D5 /* TabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,10 +98,14 @@
 		27156F4018B76AF50053A99C = {
 			isa = PBXGroup;
 			children = (
+				E8A1531A1ABA0AE2003A36D5 /* TabViewController.h */,
+				E8A1531B1ABA0AE2003A36D5 /* TabViewController.m */,
+				E8A153171ABA02D8003A36D5 /* JogoViewController.h */,
+				E8A153181ABA02D8003A36D5 /* JogoViewController.m */,
+				E8A153141AB9E14B003A36D5 /* TableViewController.h */,
+				E8A153151AB9E14B003A36D5 /* TableViewController.m */,
 				E8A1530F1AB8523F003A36D5 /* MViewController.h */,
 				E8A153101AB8523F003A36D5 /* MViewController.m */,
-				E8A153091AB75860003A36D5 /* MySingleton.h */,
-				E8A1530A1AB75860003A36D5 /* MySingleton.m */,
 				E8A153001AB750DB003A36D5 /* ViewController.h */,
 				E8A153011AB750DB003A36D5 /* ViewController.m */,
 				27156F5218B76AF50053A99C /* Navigation */,
@@ -126,6 +139,8 @@
 		27156F5218B76AF50053A99C /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				E8A153091AB75860003A36D5 /* MySingleton.h */,
+				E8A1530A1AB75860003A36D5 /* MySingleton.m */,
 				27156F5B18B76AF50053A99C /* MackenzieAppDelegate.h */,
 				27156F5C18B76AF50053A99C /* MackenzieAppDelegate.m */,
 				27156F5E18B76AF50053A99C /* Images.xcassets */,
@@ -260,9 +275,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8A1530B1AB75860003A36D5 /* MySingleton.m in Sources */,
+				E8A153161AB9E14B003A36D5 /* TableViewController.m in Sources */,
 				E8A153021AB750DB003A36D5 /* ViewController.m in Sources */,
 				27156F5D18B76AF50053A99C /* MackenzieAppDelegate.m in Sources */,
+				E8A1531C1ABA0AE2003A36D5 /* TabViewController.m in Sources */,
 				27156F5918B76AF50053A99C /* main.m in Sources */,
+				E8A153191ABA02D8003A36D5 /* JogoViewController.m in Sources */,
 				E8A153111AB8523F003A36D5 /* MViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

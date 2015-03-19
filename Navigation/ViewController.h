@@ -14,4 +14,6 @@
 
 @property MySingleton* ms;
 @property UIImageView *im;
+//@property UIToolbar *Toolbar;
+//@property UITabBar *Tabbar;
 @end

@@ -10,7 +10,7 @@
 
 @implementation MySingleton
 
-@synthesize word,img,sound,contador,letter;
+@synthesize word,img,sound,contador,contadorjogo,letter,imgmain, letterjogo;
 
 
 static MySingleton *single=nil;
@@ -33,8 +33,13 @@ static MySingleton *single=nil;
         word = [[NSArray alloc] initWithObjects:@"Astra",@"Bentley",@"Cadillac",@"DeLorean",@"Eclipse",@"Ferrari",@"Gurgel",@"Hummer",@"Impala",@"Jaguar",@"Kombi",@"Lincoln",@"McLaren",@"Neon",@"Opala",@"Parati",@"Qashqai",@"Ranger",@"Santana",@"Thunderbird",@"Uno",@"Veraneio",@"Wagoneer",@"Xsara",@"Yaris",@"Zagatto", nil];
         img = [[NSArray alloc] initWithObjects:@"Astra.jpg",@"Bentley.jpg",@"Cadillac.jpg",@"DeLorean.jpg",@"Eclipse.jpg",@"Ferrari.jpg",@"Gurgel.jpg",@"Hummer.jpg",@"Impala.jpg",@"Jaguar.jpg",@"Kombi.jpg",@"Lincoln.jpg",@"McLaren.jpg",@"Neon.jpg",@"Opala.jpg",@"Parati.jpg",@"Qashqai.jpg",@"Ranger.jpg",@"Santana.jpg",@"Thunderbird.jpg",@"Uno.jpg",@"Veraneio.jpg",@"Wagonner.jpg",@"Xsara.jpg",@"Yaris.jpg",@"Zagatto.jpg", nil];
         
+        /////////---------- JOGO
+        imgmain=[[NSArray alloc] initWithObjects:@"car", @"game",@"car2",nil];
         
+        letterjogo=[[NSArray alloc]initWithObjects:@"A",@"B",@"C",@"D",@"E",@"F",@"G",@"H",@"I",@"J",@"K",@"L",@"M",@"N",@"O",@"P",@"Q",@"R",@"S",@"T",@"U",@"V",@"W",@"X",@"Y",@"Z", nil];
+         /////////---------- JOGO
         contador=0;
+        contadorjogo=0;
         
     }
     return self;
