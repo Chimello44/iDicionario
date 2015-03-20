@@ -26,6 +26,8 @@
 		E8A153161AB9E14B003A36D5 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A153151AB9E14B003A36D5 /* TableViewController.m */; };
 		E8A153191ABA02D8003A36D5 /* JogoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A153181ABA02D8003A36D5 /* JogoViewController.m */; };
 		E8A153211ABB413A003A36D5 /* MainTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A153201ABB413A003A36D5 /* MainTabViewController.m */; };
+		E8A153231ABC8B87003A36D5 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A153221ABC8B87003A36D5 /* Realm.framework */; };
+		E8A153251ABC8BA1003A36D5 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A153241ABC8BA1003A36D5 /* libc++.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,8 @@
 		E8A153181ABA02D8003A36D5 /* JogoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JogoViewController.m; sourceTree = "<group>"; };
 		E8A1531F1ABB413A003A36D5 /* MainTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabViewController.h; sourceTree = "<group>"; };
 		E8A153201ABB413A003A36D5 /* MainTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabViewController.m; sourceTree = "<group>"; };
+		E8A153221ABC8B87003A36D5 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		E8A153241ABC8BA1003A36D5 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,10 +79,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8A153251ABC8BA1003A36D5 /* libc++.dylib in Frameworks */,
 				E8A153131AB8B894003A36D5 /* AVFoundation.framework in Frameworks */,
 				27156F4F18B76AF50053A99C /* CoreGraphics.framework in Frameworks */,
 				27156F5118B76AF50053A99C /* UIKit.framework in Frameworks */,
 				27156F4D18B76AF50053A99C /* Foundation.framework in Frameworks */,
+				E8A153231ABC8B87003A36D5 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +127,8 @@
 		27156F4B18B76AF50053A99C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E8A153241ABC8BA1003A36D5 /* libc++.dylib */,
+				E8A153221ABC8B87003A36D5 /* Realm.framework */,
 				E8A153121AB8B894003A36D5 /* AVFoundation.framework */,
 				27156F4C18B76AF50053A99C /* Foundation.framework */,
 				27156F4E18B76AF50053A99C /* CoreGraphics.framework */,
@@ -416,6 +424,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Navigation/Navigation-Prefix.pch";
 				INFOPLIST_FILE = "Navigation/Navigation-Info.plist";
@@ -429,6 +441,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Navigation/Navigation-Prefix.pch";
 				INFOPLIST_FILE = "Navigation/Navigation-Info.plist";

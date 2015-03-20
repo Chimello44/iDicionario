@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "MViewController.h"
 #import "MainTabViewController.h"
-
+#import "MySingleton.h"
 
 
 @interface ViewController ()
@@ -23,9 +23,12 @@ UITextField *textBusca;
     [super viewDidLoad];
     ms =[MySingleton singleObj];
     
+    //-------------------------------------------------------------------PINCH
     
+    UIPinchGestureRecognizer *pinch=[[UIPinchGestureRecognizer alloc]initWithTarget:self action:@selector(pinch1:)];
+    ////////
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    ///////////////////////
+    //-------------------------------------------------------------------
     
     self.navigationItem.title = [ms.letter objectAtIndex:ms.contador];
     
@@ -45,7 +48,7 @@ UITextField *textBusca;
     //self.im.layer.cornerRadius = 10.0f;
     
     
-    ////////////
+   //-------------------------------------------------------------------
     UIButton *botao = [UIButton
                        buttonWithType:UIButtonTypeSystem];
     [botao
@@ -57,7 +60,7 @@ UITextField *textBusca;
     
     [self.view addSubview:botao];
     
-    //////// botao p/main
+    //------------------------------------------------------------------- botao p/main
     
     UIButton *botaoo=[UIButton buttonWithType:UIButtonTypeSystem];
     [botaoo setTitle:@"Main" forState:UIControlStateNormal];
@@ -67,33 +70,87 @@ UITextField *textBusca;
     
     [self.view addSubview:botaoo];
     
-    ///////////////////   BOTAO BUSCA
+    
+    
+   //------------------------------------------------------------------- BOTAO BUSCA
     textBusca=[[UITextField alloc]initWithFrame:CGRectMake(10,64,300,30)];
     textBusca.textAlignment=NSTextAlignmentLeft;
     textBusca.borderStyle=UITextBorderStyleRoundedRect;
     textBusca.font=[UIFont systemFontOfSize:12];
-    textBusca.placeholder=@"Pesquisar carro";
+    textBusca.placeholder=@"ESCREVA A PRIMEIRA LETRA DO CARRO QUE DESEJA";
     textBusca.keyboardType=UIKeyboardTypeDefault;
     textBusca.returnKeyType =UIReturnKeyDone;
     textBusca.contentVerticalAlignment=UIControlContentVerticalAlignmentCenter;
     textBusca.delegate=self;
-    ///////////////////   TEXT BUSCA
+    
+    
+    
+   //-------------------------------------------------------------------  TEXT BUSCA
     
     botaoBusca=[UIButton buttonWithType:UIButtonTypeSystem];
-    //botaoBusca addTarget:self action:@selector(buscarCarro:) forControlEvents:UIControlEventTouchUpInside];
+    [botaoBusca addTarget:self action:@selector(buscarCarro:) forControlEvents:UIControlEventTouchUpInside];
     [botaoBusca setTitle:@"Busca"forState:UIControlStateNormal];
     botaoBusca.frame = CGRectMake(62,100,200,30);
     
     
     [self.view addSubview:textBusca];
     [self.view addSubview:botaoBusca];
+    [self.view addGestureRecognizer:pinch];
 }
+
+-(NSString *)formatar:(NSString *)entrada{
+    NSString *saida=entrada;
+    saida=[saida stringByReplacingOccurrencesOfString:@"" withString: @""];
+    saida=[saida lowercaseString];
+    return saida;
+}
+
 -(void)buscarCarro:(id)sender{
     
+   //ESTE METODO O ANDRE OTA ME AJUDOU, POR TANDO PODE SER QUE ESTEJA PARECIDO!!!!
+    
+    NSString *texto = [self formatar: textBusca.text];
+    
+    if(texto != nil){
+        MySingleton *dicbusca = [MySingleton singleObj];
+        NSString *p;
+        Boolean find = false;
+        
+        NSArray *word = [dicbusca word];
+        
+        for (int i=0; i<25 && find==false; i++){
+            p=[ms.letter objectAtIndex:i];
+            if ([texto isEqualToString:[self formatar:p]]){
+                NSLog(@"GO");
+                find = true;
+                [dicbusca novocontador:i];
+                
+                UINavigationController *navigation = [[UINavigationController alloc]init];
+                ViewController *letra = [[ViewController alloc]initWithNibName:nil bundle:NULL];
+                [navigation setViewControllers:[NSArray arrayWithObjects:letra, nil]];
+                
+//                UIImage *imagem1 = [[UIImage alloc]init];
+//               imagem1 = [UIImage imageNamed:];
+//                
+//                navigation.tabBarItem = [[UITabBarItem alloc]initWithTitle:nil image:ms.img tag: 1];
+                
+                [self.tabBarController setViewControllers: [NSArray arrayWithObjects:self, navigation, nil]];
+                [self.tabBarController setSelectedIndex:1];
+          
+            }
+        }
+        if(find==false){
+            [UIView animateWithDuration:0.08 delay:0 options:UIViewAnimationCurveLinear animations :^{
+                [UIView setAnimationRepeatCount:6.0];
+            } completion:^(BOOL finished) {
+                botaoBusca.transform=CGAffineTransformMakeTranslation(0,0);
+            }];
+        }
+    }
 }
 -(void)viewWillAppear:(BOOL)animated{
     im =[[UIImageView alloc] initWithFrame:CGRectMake(250,250,250,250)];
-    im.image=[UIImage imageNamed:[ms.img objectAtIndex:ms.contador]];
+    im.image=[UIImage imageNamed:[ms.img  objectAtIndex:ms.contador]];
     [self.view addSubview:im];
     [im.layer setBorderColor: [[UIColor blackColor] CGColor]];
     [im.layer setBorderWidth: 1.0];
@@ -109,7 +166,7 @@ UITextField *textBusca;
     
     [im addGestureRecognizer:rec];
 }
-///////////////////////////////////////////////    funcao fala
+//-------------------------------------------------------------------  funcao fala
 -(void)speak:(id)sender{
     NSLog(@"speak");
 AVSpeechSynthesizer *synthesizer = [[AVSpeechSynthesizer alloc]init];
@@ -121,7 +178,7 @@ utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-US"];
     
 }
 
-///////////////////////////////////////////////   botao para proximo
+//------------------------------------------------------------------- botao para proximo
 -(void)next:(id)sender {
     ViewController *proximo = [[ViewController alloc]
                                      initWithNibName:nil
@@ -134,7 +191,7 @@ utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-US"];
                                          animated:NO];
    [self dismissViewControllerAnimated:YES completion:nil];
 }
-///////////////////////////////////////////////// botao para voltar para o main
+////-------------------------------------------------------------------botao para voltar para o main
 -(void)main:(id)sender {
     MViewController *proximo = [[MViewController alloc]
                                 initWithNibName:nil
@@ -144,7 +201,7 @@ utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-US"];
                                          animated:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-/////////////////////////////////////////////////   botao para a anterior
+//------------------------------------------------------------------- botao para a anterior
 -(void)back:(id)sender {
     
     ViewController *anterior = [[ViewController alloc]
@@ -164,7 +221,7 @@ utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-US"];
 }
 
 
-///////////////////////////////////////////   metodo para animacao de zoom na imagem
+//-------------------------------------------------------------------  metodo para animacao de zoom na imagem
 
 -(void)expansion:(UILongPressGestureRecognizer*)sender{
     if(sender.state==UIGestureRecognizerStateBegan){
@@ -178,8 +235,31 @@ utterance.voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"en-US"];
         }];
     }
 }
+#pragma Touch events
+-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    
+}
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
+    UITouch *touch= [touches anyObject];
+    NSLog(@"tocou");
+    CGPoint touchlocal=[touch locationInView:self.view];
+    
+    [UIView animateWithDuration:0 animations:^{
+        im.transform=CGAffineTransformMakeTranslation(touchlocal.x-im.center.x, touchlocal.y-im.center.y);
+    }];
+    
+}
 
+-(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+    
+}
 
+//-------------------------------------------------------------------METODO PINCH
 
+-(void)pinch1 :(UIPinchGestureRecognizer *)recognizer{
+    
+    CGAffineTransform transform=CGAffineTransformMakeScale(recognizer.scale, recognizer.scale);
+    im.transform=transform;
+}
 
 @end

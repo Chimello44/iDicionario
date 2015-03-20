@@ -52,6 +52,7 @@ MySingleton *ms;
     UITableViewCell *cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"palavra"];
                            
                            long row=indexPath.row;
+    [cell.imageView setImage:[UIImage imageNamed:[ms.img objectAtIndex:row]]];
     [cell.textLabel setText:[NSString stringWithFormat:@"%c",[[ms.word objectAtIndex:row]characterAtIndex:0]]];
     [cell.detailTextLabel setText:[ms.word objectAtIndex:row]];
     

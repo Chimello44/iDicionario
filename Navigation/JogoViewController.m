@@ -15,6 +15,7 @@
 UITextField *textCarro;
 @implementation JogoViewController
 @synthesize ms,im;
+
 -(void) viewDidLoad {
     
     
@@ -24,7 +25,7 @@ UITextField *textCarro;
     
     [self.tabBarController.tabBar setHidden:YES];
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    ///////////////
+   //-------------------------------------------------------------------
     
     self.title = [ms.letterjogo objectAtIndex:ms.contadorjogo];
     
@@ -39,7 +40,7 @@ UITextField *textCarro;
     
     
    
-    //////////////////////////// botao p/main
+    //-------------------------------------------------------------------botao p/main
     
     UIButton *botaoo=[UIButton buttonWithType:UIButtonTypeSystem];
     [botaoo setTitle:@"Main" forState:UIControlStateNormal];
@@ -49,11 +50,10 @@ UITextField *textCarro;
     
     [self.view addSubview:botaoo];
     
-    //////////////////////////
+    /////-------------------------------------------------------------------
     
     
-    
-    //////////--------- TOOLBAR//Edit#@
+    //-------------------------------------------------------------------TOOLBAR//Edit#@
     
     self.navigationController.toolbarHidden=NO;
     UIBarButtonItem *flexItem =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
@@ -64,9 +64,9 @@ UITextField *textCarro;
    NSArray *items =[NSArray arrayWithObjects:take,flexItem,item,flexItem,gallery, nil];
    self.toolbarItems=items;
     
-    //////////////////////
+    //-------------------------------------------------------------------
     
-    ///////////////// NOME CARRO
+    //-------------------------------------------------------------------NOME CARRO
     
     textCarro=[[UITextField alloc]initWithFrame:CGRectMake(10,64,300,30)];
     textCarro.textAlignment=NSTextAlignmentLeft;
@@ -79,6 +79,24 @@ UITextField *textCarro;
     textCarro.delegate=self;
     
     [self.view addSubview:textCarro];
+    
+    
+    
+   //-------------------------------------------------------------------imagem
+    
+    
+    im =[[UIImageView alloc] initWithFrame:CGRectMake(250,250,250,250)];
+    im.image=[UIImage imageNamed:[ms.imgmain objectAtIndex:2]];
+    [self.view addSubview:im];
+    [im.layer setBorderColor: [[UIColor blackColor] CGColor]];
+    [im.layer setBorderWidth: 1.0];
+    im.center=self.view.center;
+    im.layer.masksToBounds = YES;
+    im.contentMode = UIViewContentModeScaleAspectFit;
+    self.im.layer.cornerRadius = 125.0f;
+    
+    im.userInteractionEnabled = YES;
+    
 }
 
 
@@ -86,27 +104,13 @@ UITextField *textCarro;
       
   }
 -(void)viewWillAppear:(BOOL)animated{
-    im =[[UIImageView alloc] initWithFrame:CGRectMake(250,250,250,250)];
-    im.image=[UIImage imageNamed:[ms.imgmain objectAtIndex:2]];
-    [self.view addSubview:im];
-    [im.layer setBorderColor: [[UIColor blackColor] CGColor]];
-    [im.layer setBorderWidth: 1.0];
-    im.center=self.view.center;
-    //im.layer.mastobounds corta se passar da borda!
-    im.layer.masksToBounds = YES;
-    im.contentMode = UIViewContentModeScaleAspectFit;
-    self.im.layer.cornerRadius = 125.0f;
-    
-    im.userInteractionEnabled = YES;
-    
-//    UILongPressGestureRecognizer *rec = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(expansion:)];
-//    
-//    [im addGestureRecognizer:rec];
+   
+
 }
 
 
 
-///////////////////////////////////////////////   botao para proximo
+//-------------------------------------------------------------------botao para proximo
 -(void)next:(id)sender {
     JogoViewController *proximo = [[JogoViewController alloc]
                                initWithNibName:nil
@@ -119,7 +123,7 @@ UITextField *textCarro;
                                          animated:NO];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-///////////////////////////////////////////////// botao para voltar para o main
+//-------------------------------------------------------------------botao para voltar para o main
 -(void)main:(id)sender {
     MViewController *proximo = [[MViewController alloc]
                                 initWithNibName:nil
@@ -129,7 +133,7 @@ UITextField *textCarro;
                                          animated:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-/////////////////////////////////////////////////   botao para a anterior
+///------------------------------------------------------------------- botao para a anterior
 -(void)back:(id)sender {
     
     JogoViewController *anterior = [[JogoViewController alloc]
@@ -149,7 +153,7 @@ UITextField *textCarro;
 }
 
 
-///////////////////////////////////////////   metodo para animacao de zoom na imagem
+//-------------------------------------------------------------------metodo para animacao de zoom na imagem
 
 -(void)expansion:(UILongPressGestureRecognizer*)sender{
     if(sender.state==UIGestureRecognizerStateBegan){
@@ -190,9 +194,9 @@ UITextField *textCarro;
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
 
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
-    self.im.image = chosenImage;
+    self.im.image= chosenImage;
 
-    im = [info objectForKey:UIImagePickerControllerReferenceURL];
+//    im = [info objectForKey:UIImagePickerControllerReferenceURL];
 
     [picker dismissViewControllerAnimated:YES completion:NULL];
 
@@ -201,6 +205,7 @@ UITextField *textCarro;
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
+
 
 
 
