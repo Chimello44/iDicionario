@@ -28,6 +28,7 @@
 		E8A153211ABB413A003A36D5 /* MainTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A153201ABB413A003A36D5 /* MainTabViewController.m */; };
 		E8A153231ABC8B87003A36D5 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A153221ABC8B87003A36D5 /* Realm.framework */; };
 		E8A153251ABC8BA1003A36D5 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A153241ABC8BA1003A36D5 /* libc++.dylib */; };
+		E8A153281ABCB519003A36D5 /* MyRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A153271ABCB519003A36D5 /* MyRealm.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,8 @@
 		E8A153201ABB413A003A36D5 /* MainTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabViewController.m; sourceTree = "<group>"; };
 		E8A153221ABC8B87003A36D5 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		E8A153241ABC8BA1003A36D5 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		E8A153261ABCB519003A36D5 /* MyRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRealm.h; sourceTree = "<group>"; };
+		E8A153271ABCB519003A36D5 /* MyRealm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRealm.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +107,8 @@
 		27156F4018B76AF50053A99C = {
 			isa = PBXGroup;
 			children = (
+				E8A153261ABCB519003A36D5 /* MyRealm.h */,
+				E8A153271ABCB519003A36D5 /* MyRealm.m */,
 				E8A1531F1ABB413A003A36D5 /* MainTabViewController.h */,
 				E8A153201ABB413A003A36D5 /* MainTabViewController.m */,
 				E8A1531E1ABB39AA003A36D5 /* Main/Dici/Jogo */,
@@ -298,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8A153281ABCB519003A36D5 /* MyRealm.m in Sources */,
 				E8A1530B1AB75860003A36D5 /* MySingleton.m in Sources */,
 				E8A153211ABB413A003A36D5 /* MainTabViewController.m in Sources */,
 				E8A153161AB9E14B003A36D5 /* TableViewController.m in Sources */,

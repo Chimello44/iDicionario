@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Realm/Realm.h>
+#import "MyRealm.h"
 
 @interface MySingleton : NSObject{
     NSArray *img;
@@ -28,6 +30,11 @@
 @property int contador;
 @property int contadorjogo;
 +(MySingleton *) singleObj;
+
+-(void)iniciandoBancoDados;
+-(MyRealm *)buscaObjetoBancoDadosWithIndex:(int)contador;
+
+
 
 @end
 
